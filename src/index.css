@@ -4,119 +4,106 @@
 
 @layer base {
   :root {
-    --color-primary: 1 118 211; /* Salesforce Blue */
-    --color-secondary: 112 110 107; /* Gray */
-    --color-accent: 72 26 90; /* Purple */
-    --color-success: 4 132 75; /* Green */
-    --color-warning: 255 183 93; /* Yellow */
-    --color-error: 194 57 52; /* Red */
-    --color-background: 243 243 243; /* Light Gray */
+    /* TailAdmin colors matching Salesforce Lightning */
+    --color-primary: 71 130 218; /* Blue */
+    --color-secondary: 99 102 241; /* Indigo */
+    --color-success: 34 197 94; /* Green */
+    --color-warning: 234 179 8; /* Yellow */
+    --color-error: 239 68 68; /* Red */
+    --color-black: 33 33 33;
+    --color-dark: 16 24 40;
+    --color-body: 100 116 139;
+    --color-bodydark: 94 120 144;
+    --color-bodydark1: 100 116 139;
+    --color-bodydark2: 113 128 150;
+    --color-stroke: 226 232 240;
+    --color-strokedark: 45 55 72;
+    --color-meta1: 219 234 254;
+    --color-meta2: 254 226 226;
+    --color-meta3: 220 252 231;
   }
 
-  html, body {
-    @apply antialiased;
-    @apply bg-[#f3f3f3];
-    @apply text-gray-900;
-    @apply font-sans;
+  body {
+    @apply font-satoshi font-normal text-base text-body bg-whiten relative z-1;
   }
 }
 
 @layer components {
-  .btn {
-    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium;
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
-    @apply transition-colors duration-200;
-  }
-  
-  .btn-primary {
-    @apply btn bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary;
-  }
-  
-  .btn-secondary {
-    @apply btn bg-white text-gray-700 hover:bg-gray-50 border border-gray-300 focus-visible:ring-primary;
-  }
-  
-  .btn-success {
-    @apply btn bg-success text-white hover:bg-success/90 focus-visible:ring-success;
-  }
-  
-  .btn-danger {
-    @apply btn bg-error text-white hover:bg-error/90 focus-visible:ring-error;
-  }
-  
-  .input {
-    @apply block w-full rounded-md border border-gray-300 px-3 py-2;
-    @apply focus:border-primary focus:ring-primary focus:outline-none focus:ring-1;
-  }
-  
+  /* Card styles */
   .card {
-    @apply bg-white rounded-lg shadow-sm;
-  }
-  
-  .page-title {
-    @apply text-2xl font-bold text-gray-900 mb-6;
+    @apply rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark;
   }
 
-  .section-title {
-    @apply text-xl font-semibold text-gray-800 mb-4;
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-6 py-2.5 text-center font-medium text-white hover:bg-opacity-90;
   }
 
-  .app-container {
-    height: 100vh;
-    width: 100vw;
-    @apply overflow-hidden;
+  .btn-primary {
+    @apply bg-primary;
   }
 
-  .sidebar-item {
-    @apply flex items-center gap-2 px-4 py-2 text-gray-700 rounded-md;
-    @apply hover:bg-primary/10 hover:text-primary;
-    @apply transition-colors duration-150;
+  .btn-secondary {
+    @apply bg-secondary;
   }
 
-  .sidebar-item.active {
-    @apply bg-primary/10 text-primary font-medium;
+  .btn-success {
+    @apply bg-success;
   }
 
-  /* Loading animation */
-  .loading-spinner {
-    @apply animate-spin;
+  .btn-danger {
+    @apply bg-error;
+  }
+
+  /* Form styles */
+  .form-input,
+  .form-textarea,
+  .form-select,
+  .form-multiselect {
+    @apply rounded-lg border border-stroke bg-transparent py-3 px-5 outline-none focus:border-primary focus-visible:shadow-none dark:border-strokedark dark:bg-meta4 dark:focus:border-primary;
   }
 
   /* Table styles */
-  .data-table {
-    @apply w-full;
+  .table-basic {
+    @apply w-full text-left;
   }
 
-  .data-table th {
-    @apply px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
-    @apply bg-gray-50;
+  .table-basic thead tr th {
+    @apply bg-gray-2 border-b border-stroke py-4 px-4 font-medium text-black dark:border-strokedark dark:bg-meta4 dark:text-white;
   }
 
-  .data-table td {
-    @apply px-4 py-2 text-sm text-gray-900;
-    @apply border-b border-gray-200;
+  .table-basic tbody tr td {
+    @apply border-b border-stroke py-4 px-4 dark:border-strokedark;
   }
 
-  .data-table tr:hover td {
-    @apply bg-gray-50;
+  /* Navigation styles */
+  .nav-item {
+    @apply relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium duration-300 ease-in-out hover:bg-primary hover:text-white;
+  }
+
+  .nav-item.active {
+    @apply bg-primary text-white;
   }
 }
 
-/* Animation keyframes */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Dark mode styles */
+.dark .dark\:bg-boxdark {
+  @apply bg-[#24303F];
 }
 
-@keyframes slideInRight {
-  from { transform: translateX(20px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+.dark .dark\:text-bodydark {
+  @apply text-[#AEB7C0];
 }
 
-.fade-in {
-  animation: fadeIn 0.3s ease-out;
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  @apply w-1.5;
 }
 
-.slide-in-right {
-  animation: slideInRight 0.3s ease-out;
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-stroke dark:bg-strokedark;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-primary;
 }
