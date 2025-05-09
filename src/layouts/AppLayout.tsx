@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { cn } from '../utils/helpers';
 import Sidebar from '../components/navigation/Sidebar';
 import Header from '../components/navigation/Header';
 
