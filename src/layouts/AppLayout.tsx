@@ -16,15 +16,22 @@ function AppLayout({ children }: AppLayoutProps) {
   };
 
   return (
-    <div className="app-container flex h-screen overflow-hidden">
-      <Sidebar isOpen={isSidebarOpen} currentPath={location.pathname} />
-      
-      <div className="flex flex-col flex-1 overflow-hidden">
-        <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+    <div className="dark:bg-boxdark-2 dark:text-bodydark">
+      <div className="flex h-screen overflow-hidden">
+        <Sidebar isOpen={isSidebarOpen} />
         
-        <main className="flex-1 overflow-auto bg-[#f3f3f3] p-6">
-          {children}
-        </main>
+        <div className={cn(
+          "relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden",
+          isSidebarOpen ? 'ml-72' : 'ml-20'
+        )}>
+          <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+          
+          <main>
+            <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+              {children}
+            </div>
+          </main>
+        </div>
       </div>
     </div>
   );
