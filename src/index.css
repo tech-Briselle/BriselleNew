@@ -40,7 +40,12 @@ body {
 
 /* Custom utility classes */
 .page-header {
-  @apply slds-page-header;
+  /* Use the class directly instead of @apply */
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--slds-g-color-neutral-base-100, #fff);
+  border-bottom: 1px solid var(--slds-g-color-border-base-1, #dddbda);
 }
 
 .card {
