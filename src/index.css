@@ -21,24 +21,7 @@ body {
   background-color: var(--slds-g-color-neutral-base-95, #f3f3f3);
 }
 
-/* SLDS Component Overrides */
-.slds-button {
-  @apply rounded;
-}
-
-.slds-card {
-  @apply rounded-md shadow-md;
-}
-
-.slds-table {
-  @apply w-full;
-}
-
-.slds-input {
-  @apply rounded;
-}
-
-/* Custom utility classes */
+/* SLDS Component Classes */
 .page-header {
   display: flex;
   align-items: center;
@@ -47,15 +30,15 @@ body {
   border-bottom: 1px solid var(--slds-g-color-border-base-1, #dddbda);
 }
 
+/* Base Components */
 .card {
-  @apply slds-card;
+  composes: slds-card from global;
 }
 
 .btn {
-  @apply slds-button;
+  composes: slds-button from global;
 }
 
-/* Fix: Use direct class assignment instead of @apply for SLDS button variants */
 .btn-brand {
   composes: slds-button slds-button_brand from global;
 }
@@ -68,63 +51,64 @@ body {
   composes: slds-table slds-table_bordered slds-table_cell-buffer from global;
 }
 
+/* Form Elements */
 .form-input {
-  @apply slds-input;
+  composes: slds-input from global;
 }
 
 .form-select {
-  @apply slds-select;
+  composes: slds-select from global;
 }
 
 .form-checkbox {
-  @apply slds-checkbox;
+  composes: slds-checkbox from global;
 }
 
 .form-radio {
-  @apply slds-radio;
+  composes: slds-radio from global;
 }
 
 /* Layout utilities */
 .page-container {
-  @apply slds-p-around_medium;
+  composes: slds-p-around_medium from global;
 }
 
 .grid-container {
-  @apply slds-grid slds-gutters;
+  composes: slds-grid slds-gutters from global;
 }
 
 .col {
-  @apply slds-col;
+  composes: slds-col from global;
 }
 
-/* Navigation styles */
+/* Navigation */
 .nav-vertical {
-  @apply slds-nav-vertical;
+  composes: slds-nav-vertical from global;
 }
 
 .nav-vertical-item {
-  @apply slds-nav-vertical__item;
+  composes: slds-nav-vertical__item from global;
 }
 
 .nav-vertical-action {
-  @apply slds-nav-vertical__action;
+  composes: slds-nav-vertical__action from global;
 }
 
-/* Utility classes */
+/* Typography */
 .text-heading {
-  @apply slds-text-heading_medium;
+  composes: slds-text-heading_medium from global;
 }
 
 .text-title {
-  @apply slds-text-title;
+  composes: slds-text-title from global;
 }
 
 .text-body {
-  @apply slds-text-body_regular;
+  composes: slds-text-body_regular from global;
 }
 
 .truncate {
-  @apply slds-truncate;
+  composes: slds-truncate from global;
 }
 
 /* Animation classes */
