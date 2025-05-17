@@ -40,7 +40,6 @@ body {
 
 /* Custom utility classes */
 .page-header {
-  /* Use the class directly instead of @apply */
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -56,12 +55,13 @@ body {
   @apply slds-button;
 }
 
+/* Fix: Use direct class assignment instead of @apply for SLDS button variants */
 .btn-brand {
-  @apply slds-button slds-button_brand;
+  composes: slds-button slds-button_brand from global;
 }
 
 .btn-neutral {
-  @apply slds-button_neutral;
+  composes: slds-button slds-button_neutral from global;
 }
 
 .data-table {
