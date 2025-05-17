@@ -57,7 +57,7 @@ body {
 }
 
 .btn-brand {
-  @apply slds-button_brand;
+  @apply slds-button slds-button_brand;
 }
 
 .btn-neutral {
